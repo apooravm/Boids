@@ -2,7 +2,7 @@ const flock = [];
 let alignSlider, cohesionSlider, separationSlider;
 
 function setup() {
-  createCanvas(1250, 650);
+  createCanvas(windowWidth-5, widnowHeight-5);
   alignSlider = createSlider(0, 5, 1, 0.2);
   cohesionSlider = createSlider(0, 5, 1, 0.2);
   separationSlider = createSlider(0, 5, 1, 0.2);
