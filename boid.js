@@ -222,7 +222,7 @@ class Boid
         }
         if (other != this && (trueX && trueY))
         {
-            stroke(0, 255, 0);
+            stroke(cols[colIndex]);
             strokeWeight(0.2);
             line(this.position.x, this.position.y, other.position.x, other.position.y);
         }
@@ -307,3 +307,4 @@ class Boid
         this.acceleration.add(separationFinal);
     }
 }
+
