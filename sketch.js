@@ -3,8 +3,18 @@ let boidLines = [];
 let alignSlider, cohesionSlider, separationSlider;
 let speedSlider;
 
+let cols = [[0,255,0], //green
+            [0,255,255], //cyan
+            [255,105,180], //hot pink
+            [255,165,0], //orange
+            [255, 0, 0]] //red
+
+let colIndex = 0;
+
 let button;
 let bgVal;
+
+let colourButton;
 
 let switchCounter = 0;
 
@@ -22,6 +32,13 @@ function changeBG() {
   }
 }
 
+function changeLineColour() {
+  colIndex++;
+  if (colIndex > 4) {
+    colIndex = 0;
+  }
+}
+
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
   // createCanvas(1000, 700);
@@ -36,6 +53,8 @@ function setup() {
 
   // button2 = createButton('Off');
 
+  colourButton = createButton('Colour');
+
   for (let i = 0; i < 100; i++) {
     flock.push(new Boid());
   }
@@ -46,6 +65,7 @@ function setup() {
 
 function draw() {
   button.mousePressed(changeBG);
+  colourButton.mousePressed(changeLineColour);
   background(bgVal);
 
   for (let b of flock) {
