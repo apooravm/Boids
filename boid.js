@@ -3,7 +3,15 @@ class Boid
     constructor()
     {
         // this.position = createVector(width/2, height/2);
-        this.position = createVector(random(0, width), random(0, height));
+        
+        if (spawnCheck.checked()) {
+            this.position = createVector(width/2, height/2);
+        }
+        else
+        {
+            this.position = createVector(random(0, width), random(0, height));
+        }
+        
         this.x = this.position.x;
         this.y = this.position.y;
 
@@ -237,8 +245,8 @@ class Boid
         // strokeWeight(2);
         // noFill();
         stroke(255);
-        strokeWeight(5);
-        fill(255, 0);
+        strokeWeight(3);
+        fill(255);
         point(this.position.x, this.position.y);
     }
 
