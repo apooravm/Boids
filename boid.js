@@ -5,7 +5,8 @@ class Boid
         // this.position = createVector(width/2, height/2);
         this.position = createVector(random(0, width), random(0, height));
         this.x = this.position.x;
-        tihis.y = this.position.y;
+        this.y = this.position.y;
+
         this.velocity = p5.Vector.random2D();
         // this.velocity.setMag(random(2, 4)); //set the magnitude
         this.acceleration = createVector();
