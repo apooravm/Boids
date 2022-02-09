@@ -4,11 +4,8 @@ let alignSlider, cohesionSlider, separationSlider;
 let speedSlider;
 
 let boidSlider;
-
 let numBoids = 100;
-
 let qtree;
-
 let boundary;
 
 let cols = [[0,255,0], //green
@@ -24,15 +21,7 @@ let bgVal;
 
 let colourButton;
 
-let quadButton;
-
-let textButton;
-
-let switchCounter = 0;
-
 let greenLineMode = false;
-
-let qtreeVal = 0;
 
 let prevBoids = -1;
 let currBoids;
@@ -156,10 +145,4 @@ function draw() {
       }
     }
   }
-  
-  // noLoop();
-  // console.log(qtree);
-
-  
 }
-
