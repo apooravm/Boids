@@ -37,8 +37,12 @@ let qtreeVal = 0;
 let prevBoids = -1;
 let currBoids;
 
+let spawnCheck;
+let QtreeCheck;
+let greenLineCheck;
+
 function changeBG() {
-  if (switchCounter % 2 == 0) {
+  if (greenLineCheck.checked()) {
     bgVal = 0;
     greenLineMode = true;
     switchCounter++;
@@ -56,11 +60,6 @@ function changeLineColour() {
   }
 }
 
-function changeQtreeVal() {
-  qtreeVal++;
-}
-
-
 function createBoids(maxBoids) {
   for (let i = 0; i < maxBoids; i++) {
     flock.push(new Boid());
@@ -76,19 +75,16 @@ function setup() {
 
   speedSlider = createSlider(0, 15, 3, 0.5);
 
-
-  button = createButton('Switch');
-  // button.mousePressed()
-
-  // button2 = createButton('Off');
-
-  colourButton = createButton('Colour');
-
-  quadButton = createButton('Qtree');
-
   boidSlider = createSlider(0, 1000, 2, 2);
 
-  textButton = createButton(toString(numBoids));
+  colourButton = createButton('line colour');
+
+  // button = createButton('Switch');
+  greenLineCheck = createCheckbox('cool lines', false);
+
+  QtreeCheck = createCheckbox('Qtree', true);
+
+  spawnCheck = createCheckbox('Center Spawn', false);
 
   bgVal = 40;
 
@@ -98,13 +94,9 @@ function setup() {
 }
 
 function draw() {
-  button.mousePressed(changeBG);
+  changeBG();
   colourButton.mousePressed(changeLineColour);
-  quadButton.mousePressed(changeQtreeVal);
   background(bgVal);
-
-  // text('toString(numBoids)', boidSlider.x * 2 + boidSlider.width, height-2);
-  textButton.label = toString(numBoids);
 
   // boidSlider.
   numBoids = boidSlider.value();
@@ -125,8 +117,8 @@ function draw() {
     }
   }
 
-  if (qtreeVal % 2 != 0) {
-    qtree = new QuadTree(boundary, 4);
+  if (QtreeCheck.checked()) {
+    qtree = new QuadTree(boundary, 2);
     for (let boid of flock) {
       qtree.insert(boid);
     }
