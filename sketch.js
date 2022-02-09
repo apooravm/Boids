@@ -34,11 +34,11 @@ function changeBG() {
   if (greenLineCheck.checked()) {
     bgVal = 0;
     greenLineMode = true;
-    switchCounter++;
+//     switchCounter++;
   } else {
     bgVal = 40;
     greenLineMode = false;
-    switchCounter++;
+//     switchCounter++;
   }
 }
 
