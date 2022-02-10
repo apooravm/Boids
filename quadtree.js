@@ -117,7 +117,7 @@ class QuadTree
     show()
     {
         stroke(255);
-        strokeWeight(1);
+        strokeWeight(0.1);
         noFill();
         rectMode(CENTER);
 
@@ -128,10 +128,10 @@ class QuadTree
             this.southeast.show();
             this.southwest.show();
         }
-        for (let p of this.points) {
-            strokeWeight(4);
-            point(p.x, p.y);
-        }
+//         for (let p of this.points) {
+//             strokeWeight(4);
+//             point(p.x, p.y);
+//         }
     }
 
     
