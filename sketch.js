@@ -29,16 +29,17 @@ let currBoids;
 let spawnCheck;
 let QtreeCheck;
 let greenLineCheck;
+let QuadtreeSectionCheck;
 
 function changeBG() {
   if (greenLineCheck.checked()) {
     bgVal = 0;
     greenLineMode = true;
-//     switchCounter++;
+    // switchCounter++;
   } else {
     bgVal = 40;
     greenLineMode = false;
-//     switchCounter++;
+    // switchCounter++;
   }
 }
 
@@ -74,6 +75,8 @@ function setup() {
   QtreeCheck = createCheckbox('Qtree', true);
 
   spawnCheck = createCheckbox('Center Spawn', false);
+
+  QuadtreeSectionCheck = createCheckbox('Show Qtre', false);
 
   bgVal = 40;
 
@@ -111,6 +114,7 @@ function draw() {
     for (let boid of flock) {
       qtree.insert(boid);
     }
+    
     for (let boid of flock) {
       let range = new Rectangle(boid.x, boid.y, 100, 100);
       // rect(boid.x, boid.y, 20, 20);
@@ -125,6 +129,9 @@ function draw() {
         // this.greenLineMode = true;
         boid.show();
       }
+    }
+    if (QuadtreeSectionCheck.checked()) {
+      qtree.show();
     }
   }
   else
