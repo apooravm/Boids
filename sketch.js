@@ -76,7 +76,7 @@ function setup() {
 
   spawnCheck = createCheckbox('Center Spawn', false);
 
-  QuadtreeSectionCheck = createCheckbox('Show Qtre', false);
+  QuadtreeSectionCheck = createCheckbox('Show Qtree', false);
 
   bgVal = 40;
 
